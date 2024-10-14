@@ -1,0 +1,395 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'nasalization';
+    src: url('../../fonts/nasalization.otf')
+}
+@font-face {
+    font-family: 'dystopian';
+    src: url('../../fonts/dystopian.otf')
+}
+body{
+    background-color: #222222;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+div.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0c0c0c;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding-left: 25px;
+    z-index: 999;
+}
+div.user{
+    cursor: pointer;
+    display:flex;
+    flex-direction: row;
+    background-color: #222222;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+    transition: .2s all ease-in-out;
+}
+div.user:hover{
+    background-color: #353535;
+}
+p.user-name{
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+}
+a.sign-out{
+    position: absolute;
+    right: 0;
+    width: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    transition: .1s all ease-in-out;
+}
+a.sign-out:hover{
+    color: dimgray;
+}
+/************* Message *************/
+div.message {
+    opacity: 0;
+    position: absolute;
+    color: indianred;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+    background-color: #0c0c0c;
+    padding: 0 10px 0 10px;
+    border-radius: 4px;
+    transition: 1s opacity ease-in-out;
+}
+/************* Search Bar *************/
+div.search-bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+input.search-input{
+    height: 45px;
+    width: 60vw;
+    min-width: 350px;
+    max-width: 600px;
+    border: none;
+    outline: none;
+    border-radius: 32px;
+    font-size: 16px;
+    font-family: 'nasalization', serif;
+    padding-left: 20px;
+    padding-right: 90px;
+    background-color: antiquewhite;
+    color: #0c0c0c;
+}
+button.choose-button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 3px;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    font-size: 14px;
+    border: none;
+    border-radius: 24px;
+    background-color: #0c0c0c;
+    color: antiquewhite;
+}
+div.search-panel{
+    display: none;
+    position: absolute;
+    font-family: 'nasalization', serif;
+    border: none;
+    border-radius: 0 0 32px 32px;
+    align-items: start;
+    background-color: antiquewhite;
+    color: #0c0c0c;
+    width: 60vw;
+    min-width: 200px;
+    max-width: 600px;
+    height: 40vw;
+    max-height: 400px;
+    min-height: 200px;
+    font-size: 12px;
+    transform: translateY(45px);
+    padding: 20px 20px 20px 0;
+}
+input.search-input:focus{
+    border-radius: 24px 24px 0 0;
+}
+div.result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+div.result p{
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    padding: 5px;
+    width: 65vw;
+}
+div.result p:hover{
+    background-color: #22222250;
+}
+div.result span{
+    font-size: 12px;
+}
+/************* Choose Panel *************/
+div.choose-panel{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateY(-95px);
+    width: 65vw;
+    max-width: 600px;
+    min-width: 350px;
+    background-color: antiquewhite;
+    height: 500px;
+    min-height: 500px;
+    border-radius: 24px;
+    padding: 10px;
+    font-family: 'nasalization', serif;
+}
+i.bi-x-lg{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #0c0c0c;
+    font-size: 24px;
+    cursor: pointer;
+}
+div.testaments{
+    display: flex;
+    flex-direction: row;
+}
+div.testaments p{
+    font-size: clamp(15px, 2vw, 18px);
+    cursor: pointer;
+    margin-right: 20px;
+    transition: .2s all ease-in-out;
+}
+div.testaments p:hover{
+    color: indianred;
+}
+div.line{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 330px;
+    width: 1px;
+    background-color: #0c0c0c;
+}
+div.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60vw;
+    max-width: 550px;
+}
+div.menu p{
+    cursor: pointer;
+}
+div.chapter,
+div.book-name {
+    height: 360px;
+    overflow: scroll;
+    padding: 10px;
+    width: 200px;
+}
+div.book-name p{
+    font-size: clamp(16px, 2vw, 20px);
+    margin: 10px 0 0 0;
+    text-wrap: nowrap;
+}
+div.book-name p:hover{
+    color: indianred;
+}
+div.chapter p{
+    font-size: clamp(14px, 2vw, 16px);
+    margin: 10px 0 0 40px;
+    align-self: start;
+}
+div.chapter p:hover{
+    color: indianred;
+}
+/************* Bible *************/
+div.bible.not-expand{
+    margin-top: 40px;
+    width: 80vw;
+    max-width: 800px;
+    height: 500px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 25px 20px 5px 20px;
+    font-family: Avenir, serif;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: .5s all ease-in-out;
+}
+div.bible.expand{
+    margin-top: -90px;
+    width: 80vw;
+    max-width: 1200px;
+    height: 730px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 30px 30px 5px 30px;
+    font-family: Avenir, serif;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    transition: .5s all ease-in-out;
+    z-index: 999;
+}
+i.expand{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+p.chapter-indication{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffa176;
+    padding: 5px 15px 5px 15px;
+    transform: translate(-25px, -25px);
+    border-radius: 5px;
+    font-family: 'nasalization', serif;
+}
+div.bible-text{
+    overflow: scroll;
+}
+div.bible-text p{
+    cursor: pointer;
+    margin: 0;
+    font-size: clamp(16px, 2vw, 18px);
+    overflow: scroll;
+    transition: .1s all ease-in-out;
+}
+div.bible-text p:hover{
+    color: #e48e66;
+}
+span.verse-number{
+    font-weight: bold;
+    font-size: 12px;
+}
+/************* Add Verse *************/
+div.add-verse{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 8px;
+}
+div.add-verse div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+p.add-verse-info{
+    color: antiquewhite;
+    font-size: 14px;
+    font-family: 'nasalization', serif;
+}
+button.add{
+    cursor: pointer;
+    margin: 8px;
+    border: none;
+    background-color: #e48e66;
+    color: #0c0c0c;
+    border-radius: 5px;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+    padding: 5px 10px 5px 10px;
+}
+button.cancel{
+    cursor: pointer;
+    margin: 8px;
+    border: none;
+    background-color: transparent;
+    color: #e48e66;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}
+/************* Control *************/
+div.controls{
+    position: fixed;
+    bottom: 50px;
+    background-color: #0c0c0c;
+    width: 250px;
+    height: 50px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 28px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+div.controls i{
+    cursor: pointer;
+    color: antiquewhite;
+    transition: 0.2s all ease-in-out;
+}
+div.controls i:hover{
+    color: #e48e66;
+}
+/************* Footer *************/
+div.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}

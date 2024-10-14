@@ -1,0 +1,39 @@
+@model Account
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bible, Linyun Liu"/>
+    <meta name="theme-color" content="#222222">
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/account/create.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Create Account</title>
+</head>
+<body>
+<main>
+    <div class="content">
+        <div style="display: flex; flex-direction: row">
+            <img src="favicon.png" alt="" class="icon" style="width: 40px; margin-right: 20px">
+            <p class="title">Create Account</p>
+        </div>
+        <br><br>
+        <form method="post" asp-controller="Account" asp-action="CreateAccount">
+            <label for="username"><input asp-for="Username" required type="text" id="username" placeholder="Username" maxlength="255"></label>
+            <label for="email"><input asp-for="Email" required type="email" id="email" placeholder="Email" maxlength="255"></label>
+            <label for="password"><input asp-for="Password" required type="password" id="password" placeholder="Password" minlength="8" maxlength="255" pattern="^\S{8,}$"></label>
+            <p class="instruction"><span style="color: red">* </span>Must be no less than 8 characters, space is not allowed</p>
+            <div class="create">
+                <label><input asp-for="PermissionKey" required type="text" placeholder="Permission Key"></label>
+                <button type="submit">Create</button>
+            </div>
+            <p class="message" id="message">@ViewBag.Message</p>
+        </form>
+    </div>
+</main>
+<div class="footer">
+    <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

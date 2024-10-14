@@ -1,0 +1,326 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'nasalization';
+    src: url('../../fonts/nasalization.otf')
+}
+@font-face {
+    font-family: 'dystopian';
+    src: url('../../fonts/dystopian.otf')
+}
+body{
+    background-color: #222222;
+    padding: 0;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+div.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0c0c0c;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding-left: 25px;
+    z-index: 999;
+}
+div.user{
+    cursor: pointer;
+    display:flex;
+    flex-direction: row;
+    background-color: #222222;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+    transition: .2s all ease-in-out;
+}
+div.user:hover{
+    background-color: #353535;
+}
+p.user-name{
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+}
+a.sign-out{
+    position: absolute;
+    right: 0;
+    width: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    transition: .1s all ease-in-out;
+}
+a.sign-out:hover{
+    color: dimgray;
+}
+
+/************* Search Bar *************/
+form{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+input.search-input{
+    height: 45px;
+    width: 60vw;
+    margin-right: 5px;
+    min-width: 350px;
+    max-width: 600px;
+    border: none;
+    outline: none;
+    border-radius: 32px;
+    font-size: 16px;
+    font-family: 'nasalization', serif;
+    padding-left: 20px;
+    background-color: antiquewhite;
+    color: #0c0c0c;
+}
+button.search-button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 24px;
+    background-color: #e48e66;
+    color: #0c0c0c;
+}
+
+/************* Content *************/
+div.content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    max-width: 1080px;
+    position: relative;
+}
+div.content div.card{
+    cursor: default;
+    color: antiquewhite;
+    width: 340px;
+    height: 252px;
+    font-family: Avenir, serif;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s all ease-in-out;
+}
+div.content div.card:hover{
+    border: 1px dashed #ffd479;
+}
+div.content div.card div{
+    display: flex;
+    flex-direction: row;
+    align-self: end;
+    justify-content: center;
+    align-items: center;
+}
+p.text{
+    font-style: italic;
+    overflow: scroll;
+}
+p.verse{
+    align-self: end;
+    margin: 0 0 0 10px;
+    font-weight: 500;
+    color: #ffd479;
+}
+i.bi-plus-circle{
+    cursor: pointer;
+    color: #ffd479;
+}
+i.bi-plus-circle:hover{
+    color: #e48e66;
+}
+
+/************* Control *************/
+div.controls{
+    position: fixed;
+    bottom: 50px;
+    background-color: #0c0c0c;
+    width: 250px;
+    height: 50px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 28px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+div.controls i{
+    cursor: pointer;
+    color: antiquewhite;
+    transition: 0.2s all ease-in-out;
+}
+div.controls i:hover{
+    color: #e48e66;
+}
+
+/************* Footer *************/
+div.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}
+
+/************* Loader *************/
+.loader {
+    opacity: 0;
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: antiquewhite;
+}
+.loader:before,
+.loader:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
+}
+.loader:after {
+    color: #e48e66;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
+}
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+@keyframes rotateccw {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+@keyframes spin {
+    0%,
+    100% {
+        box-shadow: .2em 0 0 0 currentcolor;
+    }
+    12% {
+        box-shadow: .2em .2em 0 0 currentcolor;
+    }
+    25% {
+        box-shadow: 0 .2em 0 0 currentcolor;
+    }
+    37% {
+        box-shadow: -.2em .2em 0 0 currentcolor;
+    }
+    50% {
+        box-shadow: -.2em 0 0 0 currentcolor;
+    }
+    62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor;
+    }
+    75% {
+        box-shadow: 0 -.2em 0 0 currentcolor;
+    }
+    87% {
+        box-shadow: .2em -.2em 0 0 currentcolor;
+    }
+}
+
+/************* Message *************/
+div.message{
+    opacity: 0;
+    position: absolute;
+    color: indianred;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+    background-color: #0c0c0c;
+    padding: 0 10px 0 10px;
+    border-radius: 4px;
+    transition: 1s opacity ease-in-out;
+}
+i.add-loader {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ffd479;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

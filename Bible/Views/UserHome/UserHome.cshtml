@@ -1,0 +1,72 @@
+@model Bible.Dto.HomeDto
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bible, Linyun Liu"/>
+    <meta name="theme-color" content="#0c0c0c">
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/user/home.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/user/home.js"></script>
+    <title>Home</title>
+    <script>
+        function addCard(Id, verseId){
+            let url = `@Model.Origin/user-home/add?username=@Model.Owner&verseId=${verseId}`
+            tgAdd(Id,1)
+            fetch (url, {
+                method: "POST",
+            })
+                .then(response => {
+                    if (response.ok){
+                        tgAdd(Id,2)
+                    }
+                    else{
+                        tgAdd(Id,3)
+                    }
+                })
+                .catch(() => {
+                    tgAdd(Id,3)
+                })
+        }
+    </script>
+</head>
+<body onload="msg()">
+<div class="nav">
+    <div class="user" onclick="window.location.href='@Url.Action("Overview", "Account")'">
+        <i class="bi bi-person-fill" style="color:antiquewhite; margin-right: 5px"></i>
+        <p class="user-name">@Model.Owner</p>
+    </div>
+    <a class="sign-out" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+    <div class="message" id="message"><p id="message-text">@TempData["UserHomeMessage"]</p></div>
+</div>
+<br><br><br><br><br>
+<main>
+    <form method="post" onsubmit="tg()">
+        <span class="loader" id="loader" style="margin-right: 10px"></span>
+        <label><input asp-for="Search" class="search-input" type="text" placeholder="What is on your mind?" minlength="5" required></label>
+        <button class="search-button" type="submit"><i class="bi bi-search"></i></button>
+    </form>
+    <br><br><br>
+    <div class="content">
+        @for (var i=0; i<Model.Cards.Count; i++){
+            <div class="card">
+                <p class="text">@Model.Cards[i].Text</p>
+                <div><i class="bi bi-plus-circle" id="add-indicate-@i" onclick="addCard(@i, @Model.Cards[i].Id)"></i><p class="verse">@Model.Cards[i].Verse</p></div>
+            </div>
+        }
+    </div>
+    <br><br><br><br><br><br><br>
+    <div class="controls">
+        <a asp-controller="UserHome" asp-action="UserHome"><i class="bi bi-stars" style="color: #e48e66"></i></a>
+        <a asp-controller="UserCollection" asp-action="UserCollection"><i class="bi bi-journal-album"></i></a>
+        <a asp-controller="UserBible" asp-action="UserBible"><i class="bi bi-book"></i></a>
+    </div>
+</main>
+<div class="footer">
+    <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

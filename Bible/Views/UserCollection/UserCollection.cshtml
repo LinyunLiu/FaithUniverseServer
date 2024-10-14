@@ -1,0 +1,82 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Newtonsoft.Json
+@model Bible.Dto.CollectionDto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="author" content="Movies, Linyun Liu"/>
+  <meta name="theme-color" content="#0c0c0c">
+  <link rel="shortcut icon" href="favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="css/user/collection.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="js/user/collection.js"></script>
+  <title>Collection</title>
+  <script>
+    let data = @Html.Raw(JsonConvert.SerializeObject(Model.CardAndNote));
+    let owner = @Html.Raw(JsonConvert.SerializeObject(Model.Owner));
+    let origin = @Html.Raw(JsonConvert.SerializeObject(Model.Origin));
+    initialize(data, owner, origin)
+  </script>
+</head>
+<body onload="handleEmptyCollection()">
+<div class="nav">
+  <div class="user" onclick="window.location.href='@Url.Action("Overview", "Account")'">
+    <i class="bi bi-person-fill" style="color:antiquewhite; margin-right: 5px"></i>
+    <p class="user-name">@Model.Owner</p>
+  </div>
+  <a class="sign-out" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+  <div class="message" id="message"><p id="message-text">@TempData["UserCollectionMessage"]</p></div>
+</div>
+<br><br><br><br><br>
+<main>
+  <p class="empty-collection" id="empty-collection">You don't have any saved Bible verses</p>
+  <div class="menu-and-content">
+    <div class="side-bar-menu" id="side-bar-menu">
+      @if (Model.CardAndNote.Count > 0)
+      {
+        for (var i = 0; i < Model.CardAndNote.Count; i++)
+        {
+          if (i == 0)
+          {
+            <p class="highlight" id="@i" onclick="display(@i)">@Model.CardAndNote[i].Verse</p>
+          }
+          else{
+            <p class="not-chosen" id="@i" onclick="display(@i)">@Model.CardAndNote[i].Verse</p>
+          }
+        }
+      }
+    </div>
+    <div class="content" id="content">
+      @if (Model.CardAndNote.Count > 0)
+      {
+        <div class="card">
+            <p class="text" id="text">@Model.CardAndNote[0].Text</p>
+            <div><i class="bi bi-trash3-fill" title="delete" onclick="deleteNote()"></i><p class="verse" id="verse">@Model.CardAndNote[0].Verse</p></div>
+        </div>
+      }
+      <div class="note">
+        @if (Model.CardAndNote.Count > 0){
+          <label><textarea placeholder="Add some notes" id="note" maxlength="90000">@Model.CardAndNote[0].Note</textarea></label>
+          <button onclick="saveNote()">Save</button>
+        }
+      </div>
+      <div class="navigation-buttons">
+        <button onclick="last()"><i class="bi bi-chevron-up" title="last"></i></button>
+        <button onclick="next()"><i class="bi bi-chevron-down" title="next"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <a asp-controller="UserHome" asp-action="UserHome"><i class="bi bi-stars"></i></a>
+    <a asp-controller="UserCollection" asp-action="UserCollection"><i class="bi bi-journal-album" style="color: #e48e66"></i></a>
+    <a asp-controller="UserBible" asp-action="UserBible"><i class="bi bi-book"></i></a>
+  </div>
+</main>
+<div class="footer">
+  <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

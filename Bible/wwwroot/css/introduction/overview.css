@@ -1,0 +1,79 @@
+p.title{
+    margin: 0;
+    font-family: 'nasalization', serif;
+    font-size: clamp(3rem, 4vw + 1rem, 4rem);
+    color: antiquewhite;
+}
+div.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    max-width: 800px;
+    min-width: 400px;
+}
+span.kjv{
+    background-color: #e48e66;
+    color: #0c0c0c;
+    border-radius: 8px;
+    padding: 0 5px 0 5px;
+    font-weight: bold;
+    font-style: italic;
+}
+span.ai{
+    color: #ffd479;
+    font-weight: bold;
+    font-style: italic;
+}
+p.subtitle{
+    font-family: 'nasalization', serif;
+    align-self: start;
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    background: linear-gradient(45deg, #e48e66, antiquewhite); /* Define gradient colors here */
+    background-clip: text; /* Ensures the background applies to the text only */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Makes the actual text color transparent */
+}
+p.text{
+    color: antiquewhite;
+    font-family: "Avenir", serif;
+    font-size: 16px;
+    margin: 0;
+}
+a.email{
+    text-decoration: none;
+    color: cornflowerblue;
+}
+img.screenshot{
+    width: 60vw;
+    max-width: 800px;
+    min-width: 400px;
+}
+button.create-account{
+    border: 1px solid #e48e66;
+    width: 180px;
+    margin-right: 20px;
+    background-color: transparent;
+    color: #e48e66;
+    cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    transition: .2s all ease-in-out;
+}
+button.create-account:hover{
+    background-color: #e48e66;
+    color: #0c0c0c;
+}
+img.icon-large{
+    width: 60px;
+}
+
+
+
+
+
+

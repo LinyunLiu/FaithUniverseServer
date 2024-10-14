@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Newtonsoft.Json
+@model Bible.Controllers.AccountController.AccountMetaDto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bible, Linyun Liu"/>
+    <meta name="theme-color" content="#222222">
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/user/overview.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/user/overview.js"></script>
+    <title>Account Overview</title>
+    <script>
+        let origin = @Html.Raw(JsonConvert.SerializeObject(Model.Origin));
+        let username = @Html.Raw(JsonConvert.SerializeObject(Model.Username));
+    </script>
+</head>
+<body onload="initialize(origin, username)">
+<main>
+    <br><br>
+    <p class="title">Account Overview</p>
+    <br><br><br><br>
+    <div class="content" id="content">
+        <p>Username: <span class="val">@Model.Username</span></p>
+        <p>Email: <span class="val">@Model.Email</span></p>
+        <p>Password: <span class="val">********</span></p>
+        <br>
+        <button class="del-account" onclick="toggle(true)">Delete Account</button>
+    </div>
+    <div class="delete" id="delete">
+        <p class="message">Are you sure? this action is irreversible. If wish to continue
+            type in <span class="dma">Delete My Account</span> below and click Delete, your account we be deleted
+            as well as all the data associated with your account. Your username, email and password
+            will no longer exist on the server
+        </p>
+        <label><input type="text" required id="input"></label>
+        <div class="buttons">
+            <button class="cancel" onclick="toggle(false)">Cancel</button>
+            <button class="delete" onclick="dA()">Delete</button>
+        </div>
+    </div>
+</main>
+<div class="footer">
+    <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

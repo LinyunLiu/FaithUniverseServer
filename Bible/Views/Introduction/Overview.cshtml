@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bible, Linyun Liu"/>
+    <meta name="theme-color" content="#0c0c0c">
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/introduction/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/introduction/overview.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Overview</title>
+</head>
+<body>
+<div class="nav">
+    <a><img src="favicon.png" alt="" class="icon"></a>
+    <a asp-controller="Introduction" asp-action="Home">Home</a>
+    <a style="color: #e48e66;" asp-controller="Introduction" asp-action="Overview">Overview</a>
+    <a asp-controller="Introduction" asp-action="About">About</a>
+    <button class="sign-in" onclick="location.href='@Url.Action("SignIn", "Auth")'">Sign in</button>
+</div>
+<br><br><br><br><br>
+<main>
+    <p class="title">Overview</p>
+    <br><br><br><br>
+    <div class="content">
+        <p class="subtitle">Welcome to Faith Universe!</p>
+        <p class="text">
+            Discover a simple and intuitive platform designed to deepen your connection with your faith. Here, you can 
+            explore the <span class="kjv">King James Version</span> of the Bible at your own pace. Whether you're searching for specific chapters 
+            or simply browsing, it easy for you to find what you're looking for. Save your favorite verses to a 
+            personal library and add notes to reflect on their meaning. Not sure where to begin? Let our <span class="ai">AI-powered</span> search 
+            guide you by suggesting verses that align with what's on your mind. Dive in and explore the wisdom of scripture, 
+            one verse at a time!
+        </p>
+        <br><br>
+        <img class="screenshot" src="lib/screenshot.png" alt="" title="screenshot">
+        <br><br>
+        <p class="subtitle">How to Sign Up?</p>
+        <p class="text">
+            This website is available for limited user only, in order to sign up for an account, you will need to request 
+            a sign-up key from the developer. You can do so by emailing <a class="email" href="mailto:linyun.liu@mytwu.ca">linyun.liu@mytwu.ca</a>, not everyone will be 
+            given permission.
+        </p>
+        <br><br>
+        <p class="subtitle">Questions?</p>
+        <p class="text">
+            If you have any question in terms of how to use this website, please email <a class="email" href="mailto:linyun.liu@mytwu.ca">linyun.liu@mytwu.ca</a>. 
+            Please feel free to contact if there are any technical issues.
+        </p>
+        <br><br><br><br>
+        <button class="create-account" onclick="location.href='@Url.Action("Create", "Account")'">Create an Account</button>
+        <br><br><br><br>
+        <img class="icon-large" src="favicon.png" alt="" title="screenshot">
+    </div>
+</main>
+<br><br><br><br>
+<div class="footer">
+    <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

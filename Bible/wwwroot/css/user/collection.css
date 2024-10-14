@@ -1,0 +1,315 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'nasalization';
+    src: url('../../fonts/nasalization.otf')
+}
+@font-face {
+    font-family: 'dystopian';
+    src: url('../../fonts/dystopian.otf')
+}
+body{
+    background-color: #222222;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+div.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0c0c0c;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding-left: 25px;
+    z-index: 999;
+}
+div.user{
+    cursor: pointer;
+    display:flex;
+    flex-direction: row;
+    background-color: #222222;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    font-size: 16px;
+    transition: .2s all ease-in-out;
+}
+div.user:hover{
+    background-color: #353535;
+}
+p.user-name{
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+}
+a.sign-out{
+    position: absolute;
+    right: 0;
+    width: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    color: antiquewhite;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    transition: .1s all ease-in-out;
+}
+a.sign-out:hover{
+    color: dimgray;
+}
+/************* Message *************/
+div.message {
+    opacity: 0;
+    position: absolute;
+    color: indianred;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+    background-color: #0c0c0c;
+    padding: 0 10px 0 10px;
+    border-radius: 4px;
+    transition: 1s opacity ease-in-out;
+}
+/************* Menu and Content *************/
+div.menu-and-content{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+div.side-bar-menu{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 5px;
+    padding: 20px 5px 20px 5px;
+    overflow: scroll;
+    height: 550px;
+    text-wrap: nowrap;
+    border: 1px solid #424242;
+    margin-right: 15px;
+}
+div.side-bar-menu p{
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'nasalization', serif;
+    transition: .1s all ease-in-out;
+    padding: 10px 25px 10px 25px;
+    margin: 2px;
+    border-radius: 8px;
+}
+p.not-chosen{
+    color: antiquewhite;
+}
+p.highlight{
+    background-color: #ffd479;
+    color: #0c0c0c;
+}
+div.side-bar-menu p:hover{
+    background-color: #ffd479;
+    color: #0c0c0c;
+}
+div.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+div.card{
+    cursor: default;
+    color: antiquewhite;
+    width: 80vw;
+    max-width: 400px;
+    height: 300px;
+    font-family: Avenir, serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s all ease-in-out;
+    margin: 2px;
+}
+div.card div{
+    display: flex;
+    flex-direction: row;
+    align-self: end;
+    justify-content: center;
+    align-items: center;
+}
+i.bi-trash3-fill{
+    cursor: pointer;
+    color: #ff7e79;
+}
+p.text{
+    font-style: italic;
+    overflow: scroll;
+}
+p.verse{
+    align-self: end;
+    margin: 0 0 0 10px;
+    font-weight: 500;
+    color: #ffd479;
+}
+div.note{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+div.note button{
+    cursor: pointer;
+    width: 80vw;
+    max-width: 400px;
+    height: 40px;
+    border: none;
+    background-color: #e48e66;
+    color: #0c0c0c;
+    font-family: 'nasalization', serif;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 0;
+    transition: .1s all ease-in-out;
+}
+div.note button:hover{
+    background-color: #e48e66cc;
+}
+textarea{
+    resize: none;
+    width: 80vw;
+    max-width: 400px;
+    height: 200px;
+    border-radius: 5px;
+    outline: none;
+    background-color: antiquewhite;
+    color: #0c0c0c;
+    font-family: Avenir, serif;
+    font-size: 16px;
+    padding: 20px;
+    margin: 2px;
+    border: none;
+    transition: .1s all ease-in-out;
+}
+div.navigation-buttons{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    transform: translateX(90px);
+}
+div.navigation-buttons button{
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    color: antiquewhite;
+    font-size: 24px;
+    border-radius: 50px;
+    margin: 10px;
+    transition: .1s all ease-in-out;
+}
+div.navigation-buttons button:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+@media (max-width: 600px) {
+    div.side-bar-menu {
+        display: none;
+    }
+    div.navigation-buttons{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        transform: rotate(-90deg) translateX(490px);
+        left: 0;
+    }
+    div.menu-and-content{
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+    }
+}
+/************* Control *************/
+div.controls{
+    position: fixed;
+    bottom: 50px;
+    background-color: #0c0c0c;
+    width: 250px;
+    height: 50px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 28px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+div.controls i{
+    cursor: pointer;
+    color: antiquewhite;
+    transition: 0.2s all ease-in-out;
+}
+div.controls i:hover{
+    color: #e48e66;
+}
+/************* Footer *************/
+div.footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}
+p.empty-collection{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff7e79;
+    font-family: 'nasalization', serif;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+

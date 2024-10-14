@@ -1,0 +1,130 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'nasalization';
+    src: url('../../fonts/nasalization.otf')
+}
+@font-face {
+    font-family: 'dystopian';
+    src: url('../../fonts/dystopian.otf')
+}
+body{
+    background-color: #222222;
+    padding: 0;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+/************* Create Account *************/
+div.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+p.title{
+    margin: 0;
+    font-family: 'nasalization', serif;
+    font-size: clamp(2rem, 4vw + 1rem, 3rem);
+    color: antiquewhite;
+}
+div.content p{
+    margin: 0 0 10px 0;
+    font-family: 'nasalization', serif;
+    color: antiquewhite;
+    font-size: 16px;
+}
+span.dma{
+    color: indianred;
+}
+span.val{
+    color: grey;
+    font-size: 14px;
+}
+button.del-account{
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 32px;
+    background-color: indianred;
+    color: #0c0c0c;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+}
+div.delete{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 300px;
+    background-color: antiquewhite;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+p.message{
+    font-family: 'nasalization', serif;
+    margin: 0;
+}
+input{
+    width: 310px;
+    border-radius: 5px;
+    border: none;
+    height: 35px;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    outline: none;
+    color: indianred;
+}
+div.buttons{
+    margin-top: 5px;
+    width: 310px;
+    display: flex;
+    justify-content: space-between;
+}
+div.buttons button{
+    cursor: pointer;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}
+button.cancel{
+    width: 150px;
+    background-color: #222222;
+    color: antiquewhite;
+}
+button.delete{
+    width: 150px;
+    background-color: indianred;
+}
+/************* Footer *************/
+div.footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-family: 'nasalization', serif;
+    font-size: 12px;
+}

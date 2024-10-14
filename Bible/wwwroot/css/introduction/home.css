@@ -1,0 +1,74 @@
+/************* Title *************/
+div.title-subtitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+p.title{
+    margin: 0;
+    font-family: 'nasalization', serif;
+    font-size: clamp(3rem, 4vw + 1rem, 4rem);
+    color: antiquewhite;
+}
+p.subtitle{
+    margin: 0;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    background: linear-gradient(45deg, antiquewhite, #e48e66); /* Define gradient colors here */
+    background-clip: text; /* Ensures the background applies to the text only */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Makes the actual text color transparent */
+}
+span.verse{
+    color: #e48e66;
+}
+
+/************* Cover Image *************/
+img.book{
+    width: clamp(200px, 25vw, 300px);
+}
+
+/************* Buttons *************/
+div.account-buttons button{
+    cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+    font-family: 'nasalization', serif;
+    font-size: 14px;
+    transition: .2s all ease-in-out;
+}
+button.create-account{
+    border: 1px solid #e48e66;
+    width: 180px;
+    margin-right: 20px;
+    background-color: transparent;
+    color: #e48e66;
+}
+button.create-account:hover{
+    background-color: #e48e66;
+    color: #0c0c0c;
+}
+button.sign-in-2{
+    border: none;
+    width: 100px;
+    background-color: #e48e66;
+    color: #0c0c0c;
+}
+button.sign-in-2:hover{
+    background-color: #ffa176;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

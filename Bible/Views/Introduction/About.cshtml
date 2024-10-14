@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="author" content="Bible, Linyun Liu"/>
+    <meta name="theme-color" content="#0c0c0c">
+    <link rel="shortcut icon" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="css/introduction/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/introduction/about.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>About</title>
+</head>
+<body>
+<div class="nav">
+    <a><img src="favicon.png" alt="" class="icon"></a>
+    <a asp-controller="Introduction" asp-action="Home">Home</a>
+    <a asp-controller="Introduction" asp-action="Overview">Overview</a>
+    <a style="color: #e48e66;" asp-controller="Introduction" asp-action="About">About</a>
+    <button class="sign-in" onclick="location.href='@Url.Action("SignIn", "Auth")'">Sign in</button>
+</div>
+<br><br><br><br><br>
+<main>
+    <p class="title">About</p>
+    <br><br><br><br>
+    <div class="content">
+        <p class="text">
+            This website is dedicated to helping users study the Bible and explore Christianity. The scriptures are originally 
+            obtained from <a class="link" href="https://www.biblesupersearch.com/bible-downloads/">Bible SuperSearch</a>. While this website is free to use, 
+            please note that the content of the King James Version of the Bible is still under copyright protection in the 
+            United Kingdom. Please read <a class="link" href="https://www.cambridge.org/bibles/about/rights-and-permissions/rights-and-permissions-kjv">Rights and Permissions: KJV</a>. 
+            Outside of the UK, the text is in the public domain. 
+        </p>
+        <br><br>
+        <div class="images">
+            <img src="favicon.png" alt="">
+            <img src="lib/dotnet.png" alt="">
+            <img src="lib/cs.png" alt="">
+            <img src="lib/db.png" alt="">
+            <img src="lib/ai.png" alt="">
+        </div>
+    </div>
+</main>
+<br><br><br><br>
+<div class="footer">
+    <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>

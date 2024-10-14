@@ -1,0 +1,42 @@
+p.title{
+    margin: 0;
+    font-family: 'nasalization', serif;
+    font-size: clamp(3rem, 4vw + 1rem, 4rem);
+    color: antiquewhite;
+}
+div.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    max-width: 800px;
+    min-width: 400px;
+}
+p.subtitle{
+    font-family: 'nasalization', serif;
+    align-self: start;
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    background: linear-gradient(45deg, #e48e66, antiquewhite); /* Define gradient colors here */
+    background-clip: text; /* Ensures the background applies to the text only */
+    -webkit-background-clip: text; /* For Safari */
+    color: transparent; /* Makes the actual text color transparent */
+}
+p.text{
+    color: antiquewhite;
+    font-family: "Avenir", serif;
+    font-size: 16px;
+    margin: 0;
+}
+a.link{
+    color: cornflowerblue;
+}
+div.images{
+    display: flex;
+    flex-direction: row;
+}
+div.images img{
+    width: 60px;
+    margin: 20px
+}

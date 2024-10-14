@@ -1,0 +1,89 @@
+@model Bible.Dto.BibleDto
+@using Newtonsoft.Json
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="author" content="Movies, Linyun Liu"/>
+  <meta name="theme-color" content="#0c0c0c">
+  <link rel="shortcut icon" href="favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="css/user/bible.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="js/user/bible.js"></script>
+  <title>Bible</title>
+  <script>
+    const bible = @Html.Raw(JsonConvert.SerializeObject(Model));
+    const origin = @Html.Raw(JsonConvert.SerializeObject(Model.Origin));
+    const username = @Html.Raw(JsonConvert.SerializeObject(Model.Owner));
+  </script>
+</head>
+<body onload="initialize(bible, origin, username)">
+<div class="nav">
+  <div class="user" onclick="window.location.href='@Url.Action("Overview", "Account")'">
+    <i class="bi bi-person-fill" style="color:antiquewhite; margin-right: 5px"></i>
+    <p class="user-name">@Model.Owner</p>
+  </div>
+  <a class="sign-out" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+  <div class="message" id="message"><p id="message-text">@TempData["UserCollectionMessage"]</p></div>
+</div>
+<br><br><br><br><br>
+<main>
+  <div class="search-bar">
+    <label><input class="search-input" id="search-input" type="text" placeholder="Which book and/or chapter No. are you looking for?" onfocus="toggleSearchPanel(true)" onblur="toggleSearchPanel(false)" oninput="updateSearchResult()"></label>
+    <button class="choose-button" onclick="toggleChoosePanel(true)">Choose</button>
+    <div class="search-panel" id="search-panel">
+      <div class="result" id="result">
+        
+      </div>
+    </div>
+  </div>
+  <div class="choose-panel" id="choose-panel">
+    <i class="bi bi-x-lg" onclick="toggleChoosePanel(false)"></i>
+    <div class="testaments">
+      <p id="old-testament" onclick="displayTestament(OldTestament,'old')">Old Testament</p>
+      <p id="new-testament" onclick="displayTestament(NewTestament,'new')">New Testament</p>
+    </div>
+    <br>
+    <div class="menu">
+      <div class="book-name" id="book-name">
+        @for (int i = 0; i<Model.OldTestament.Count; i++){
+          <p id="b-@i" onclick="displayBook(@i)">@Model.OldTestament[i].BookName</p>
+        }
+      </div>
+      <div class="line"></div>
+      <div class="chapter" id="chapter">
+        @for (var i =1 ; i <= Model.OldTestament[0].ChapterCount; i++){
+          <p id="c-@i" onclick="fetchChapter(@i)">Chapter @i</p>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="bible not-expand" id="bible">
+    <p class="chapter-indication" id="chapter-indication"></p>
+    <i class="bi bi-arrows-angle-expand expand" id="expand" onclick="expandBible()"></i>
+    <div class="bible-text" id="bible-text">
+      
+    </div>
+  </div>
+  
+  <div class="add-verse" id="add-verse">
+    <p class="add-verse-info" id="add-verse-info">Add this verse to your list?</p>
+    <div>
+      <button class="cancel" onclick="toggleAddVerseWindow(false)">Cancel</button>
+      <button class="add" onclick="addVerse()">Add</button>
+    </div>
+  </div>
+
+  <div class="controls">
+    <a asp-controller="UserHome" asp-action="UserHome"><i class="bi bi-stars"></i></a>
+    <a asp-controller="UserCollection" asp-action="UserCollection"><i class="bi bi-journal-album"></i></a>
+    <a asp-controller="UserBible" asp-action="UserBible"><i class="bi bi-book" style="color: #e48e66"></i></a>
+  </div>
+</main>
+<div class="footer">
+  <p>2024 | Faith Universe | <a asp-controller="Info" asp-action="Privacy" style="color: grey;">Privacy Policy</a></p>
+</div>
+</body>
+</html>
